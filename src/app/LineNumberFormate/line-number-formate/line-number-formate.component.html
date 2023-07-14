@@ -1,0 +1,53 @@
+<mat-tab-group>
+  <mat-tab label="First">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3"
+          style="border: 1px rgb(228, 222, 222) solid; margin: 10px; border-radius: 10px;  box-shadow: 1px 2px 4px #888888;">
+          <div class="grid">
+            <div class="row">
+              <div class="col-md-10">
+                <h5 style="margin: 6px;">Line Number Formate</h5>
+              </div>
+              <div class="col-md-2">
+                <button style="text-align: end; margin-top: 6px;" class="btn btn-primary" (click)="addLineNumberFormate()"> +</button>
+              </div>
+            </div>
+            <hr>
+            <div *ngIf="this.lineNumberformateData == null; else Data">
+              <p>No Data Available</p>
+            </div>
+            <ng-template #Data>
+              <div *ngFor="let data of this.lineNumberformateData" (click)="getLineNumberFormateField(data)"
+                class="g-col-6"
+                style="border: 1px rgb(226, 212, 212) solid; padding: 5px; padding-top:10px; margin: 10px; border-radius: 5px; text-align: center;">
+                {{data.name}}
+              </div>
+            </ng-template>
+          </div>
+        </div>
+
+        <div class="col-8"
+          style="border: 1px rgb(228, 222, 222) solid; margin: 10px; border-radius: 10px;  box-shadow: 0px 0px 0px #d4caca;">
+          <div class="row">
+            <div class="col-md-10">
+              <h5 style="margin: 10px;">Configuration for line number formate</h5>
+            </div>
+          </div>
+          <hr>
+          <div *ngIf="this.selectedLineFormate==null; else selectedData">
+            <p>Please select line number formate</p>
+          </div>
+          <ng-template #selectedData>
+            <app-line-number-formate-details [item]="selectedLineFormate" [item1]="DefaultlineNumberformateData" #content>
+
+            </app-line-number-formate-details>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Second"> Content 2 </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group>
+

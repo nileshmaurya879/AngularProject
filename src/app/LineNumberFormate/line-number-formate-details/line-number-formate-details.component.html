@@ -1,0 +1,87 @@
+<div class="col-md-12">
+    <div class="row p-4 d-flex border-bottom" *ngIf="isModal">
+        <div class="col">
+            <h4> Create Line Number Format</h4>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 p-4">
+    <div class="container">
+        <form [formGroup]="LineNumberFormateFormDetails">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="example-form-fields">
+                        <mat-form-field style="width: 600px; background-color: none;">
+                            <input matInput placeholder="Name" formControlName="LineNumerFormateName" required>
+                        </mat-form-field>
+                        <mat-checkbox formControlName="isDefault">Default</mat-checkbox>
+                        <mat-checkbox formControlName="allowFree"> Allow Free </mat-checkbox>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <mat-tab-group>
+                        <mat-tab label="test" *ngFor="let tab of lineNumberFormateSectionTypeDetails" style="background-color: red;">
+                        </mat-tab>
+                    </mat-tab-group>
+    
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="example-form-fields">
+                            <mat-form-field style="width: 400px;">
+                                <input matInput placeholder="Name" formControlName="LineNumerFormateSectionName" required>
+                            </mat-form-field>
+                            <mat-form-field style="width: 400px;">
+                                <mat-label>Select me</mat-label>
+                                <mat-select>
+                                    <mat-option value="option">AlphaNumeric</mat-option>
+                                    <mat-option value="option">Numeric</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="example-form-fields">
+                            <mat-form-field style="width: 400px;">
+                                <input matInput placeholder="Name" type="number" formControlName="LineNumerFormateSectionMinChar" required>
+                            </mat-form-field>
+                            <mat-form-field style="width: 400px;"> 
+                                <input matInput placeholder="Name" type="number" formControlName="LineNumerFormateSectionMaxChar"   required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="example-form-fields">
+                            <mat-form-field style="width: 400px;">
+                                <mat-label>Select me</mat-label>
+                                <mat-select>
+                                    <mat-option value="option" *ngFor="let data of this.lineNumberFormateSectionTypeDetails" >{{data.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field style="width: 400px;">
+                                <input matInput placeholder="Name" formControlName="LineNumerFormateSectionSpecialChar" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </form>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="row p-4" *ngIf="isModal">
+        <div class="col-md-12 p-2 d-flex justify-content-end footer  border-top">
+            <div class="">
+                <button type="button" class="btn btn-primary" (click)="ngbActiveModal.close(false)"> Cancel </button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" (click)="AddLineNumberFormate()"> Save </button>
+            </div>
+        </div>
+    </div>
+</div>
