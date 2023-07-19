@@ -14,6 +14,9 @@ export class LineNumberFormateComponent{
    DefaultlineNumberformateData:LineNumberFormate[];
    selectedLineFormate:LineNumberFormate;
    testUser:any = 'hello'
+   parentData: any = 'my testing';
+   isModel:boolean= false;
+   test:any;
     constructor(private linearFormateService:LinearFormateService, private mgbModel: NgbModal){
       
       this.linearFormateService.getLineNumberFormate().subscribe((data)=>{
@@ -29,7 +32,11 @@ export class LineNumberFormateComponent{
     }
 
     addLineNumberFormate(){
-      this.mgbModel.open(LineNumberFormateDetailsComponent,{size:"xl"})
       console.log("Added new form group control");
+      this.isModel= true;
+      const modelRef= this.mgbModel.open(LineNumberFormateDetailsComponent,{size:"xl"})
+      modelRef.componentInstance.testdata = this.lineNumberformateData;
+      modelRef.componentInstance.isModel = this.isModel;
+      console.log("ModelRef",modelRef.componentInstance.testdata);
     }
 }

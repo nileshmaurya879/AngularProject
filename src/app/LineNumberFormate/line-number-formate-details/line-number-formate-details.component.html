@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <div class="row p-4 d-flex border-bottom" *ngIf="isModal">
+    <div class="row p-4 d-flex border-bottom" *ngIf="isModel">
         <div class="col">
             <h4> Create Line Number Format</h4>
         </div>
@@ -14,10 +14,11 @@
                 <div class="col-md-8">
                     <div class="example-form-fields">
                         <mat-form-field style="width: 600px; background-color: none;">
-                            <input matInput placeholder="Name" formControlName="LineNumerFormateName" required>
+                            <input matInput placeholder="name" formControlName="name" (keypress)="inputChangesEvent($event)" (input)="inputChangesEvent($event)" (paste)="inputChangesEvent($event)" required>
                         </mat-form-field>
-                        <mat-checkbox formControlName="isDefault">Default</mat-checkbox>
-                        <mat-checkbox formControlName="allowFree"> Allow Free </mat-checkbox>
+                        <span *ngIf="isDublicate" style="color: red;">Dublicate Name</span>
+                        <mat-checkbox formControlName="isDefault" (change)="inputChangesEvent($event)" required>Default</mat-checkbox>
+                        <mat-checkbox formControlName="allowFreeForm" required> Allow Free </mat-checkbox>
                     </div>
                 </div>
 
@@ -74,13 +75,13 @@
     </div>
 </div>
 <div class="col-md-12">
-    <div class="row p-4" *ngIf="isModal">
+    <div class="row p-4" *ngIf="isModel">
         <div class="col-md-12 p-2 d-flex justify-content-end footer  border-top">
-            <div class="">
+            <div class="btn-action">
                 <button type="button" class="btn btn-primary" (click)="ngbActiveModal.close(false)"> Cancel </button>
             </div>
-            <div>
-                <button type="button" class="btn btn-primary" (click)="AddLineNumberFormate()"> Save </button>
+            <div class="btn-action">
+                <button type="button" class="btn btn-primary" (click)="AddLineNumberFormate()" [disabled]="isDisable"> Save </button>
             </div>
         </div>
     </div>
